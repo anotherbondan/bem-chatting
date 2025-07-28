@@ -1,0 +1,45 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             String  @id @default(cuid())
+  username       String  @unique
+  password       String
+  profileName    String
+  profilePicture String? @default("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfSSmuKtBLKfGzFv1Bi23dtQWZyLgtUERRdA&s")
+  bio            String? @default("")
+  phoneNumber    String
+
+  // Relasi satu arah Contact
+  contacts Contact[] @relation("UserContacts")
+
+  // Relasi dua arah Message
+  messages         Message[] @relation("MessagesSent")
+  receivedMessages Message[] @relation("MessagesReceived")
+}
+
+model Contact {
+  id        Int    @id @default(autoincrement())
+  name      String
+  ownerId   String
+  contactId String
+
+  owner User @relation("UserContacts", fields: [ownerId], references: [id])
+}
+
+model Message {
+  id         Int      @id @default(autoincrement())
+  timestamp  DateTime @default(now())
+  text       String
+  senderId   String
+  receiverId String
+
+  sender   User @relation("MessagesSent", fields: [senderId], references: [id])
+  receiver User @relation("MessagesReceived", fields: [receiverId], references: [id])
+}

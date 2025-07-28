@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-roboto-flex: var(--font-roboto-flex);
+  --font-bebas-neue: var(--font-bebas-neue);
+
+  --background-image-gradient: linear-gradient(
+    100deg,
+    #192f59 0%,
+    #d61b23 100%
+  );
+
+  --background-image-gradient-hover: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0.2) 100%
+    ),
+    linear-gradient(100deg, #192f59 0%, #d61b23 100%);
+
+  --background-image-gradient-pressed: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.4) 0%,
+      rgba(0, 0, 0, 0.4) 100%
+    ),
+    linear-gradient(100deg, #192f59 0%, #d61b23 100%);
+
+  --background-image-gradient-disabled: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.6) 100%
+    ),
+    linear-gradient(100deg, #192f59 0%, #d61b23 100%);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-roboto-flex), var(--font-sans), sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}

@@ -1,0 +1,26 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Account {
+  id             String    @id
+  username       String    @unique
+  profileName    String
+  profilePicture String?   @default("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfSSmuKtBLKfGzFv1Bi23dtQWZyLgtUERRdA&s")
+  bio            String?   @default("")
+  phoneNumber    String
+  Contact        Contact[]
+}
+
+model Contact {
+  id        Int     @id @default(autoincrement())
+  name      String
+  accountId String
+  Account   Account @relation(fields: [accountId], references: [id])
+}
