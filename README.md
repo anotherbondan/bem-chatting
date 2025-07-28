@@ -1,4 +1,4 @@
-##bem-chatting
+# bem-chatting
 
 First, run the development server:
 
