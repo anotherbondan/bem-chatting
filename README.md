@@ -27,11 +27,15 @@ bem-chatting/
    ```sh
    npm install @prisma/client cors dotenv express prisma nodemon
    ```
-3. **Jalankan server**
+4. **Tambahkan PORT pada file .env**
+   ```sh
+   PORT=3001
+   ```
+5. **Jalankan server**
    ```sh
    nodemon ./src
    ```
-4. **Cek apakah server berjalan**
+6. **Cek apakah server berjalan**
    Buka browser atau gunakan Postman untuk mengakses:
    ```
    http://localhost:3001
