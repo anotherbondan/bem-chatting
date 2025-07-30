@@ -11,7 +11,7 @@ export default function LoginModule() {
     e.preventDefault();
 
     try {
-      const res = await fetch("http://localhost:3001/login", {
+      const res = await fetch(`${process.env.BACKEND_URL}/login`, {
         method: "POST",
         headers: {
           Authorization: "Basic " + btoa(`${username}:${password}`),

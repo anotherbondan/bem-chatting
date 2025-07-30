@@ -20,7 +20,7 @@ export default function InputChat({
     if (!text.trim()) return;
 
     try {
-      const res = await fetch("http://localhost:3001/messages", {
+      const res = await fetch(`${process.env.BACKEND_URL}/messages`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

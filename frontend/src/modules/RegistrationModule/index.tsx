@@ -33,7 +33,7 @@ export default function RegistrationModule() {
     console.log("Form Data:", data);
 
     setLoading(true);
-    const res = await fetch("http://localhost:3001/users/register", {
+    const res = await fetch(`${process.env.BACKEND_URL}/users/register`, {
       method: "POST",
       body: JSON.stringify(data),
       headers: {

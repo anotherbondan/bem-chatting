@@ -22,7 +22,7 @@ export default function ChatList({ userId }: { userId: string }) {
     const fetchContacts = async () => {
       try {
         const res = await fetch(
-          `http://localhost:3001/users/${userId}/contacts`
+          `${process.env.BACKEND_URL}/users/${userId}/contacts`
         );
         if (!res.ok) {
           const err = await res.text();

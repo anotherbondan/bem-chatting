@@ -25,7 +25,7 @@ export default function ChatContent({ userId, contactId }: ChatContentProps) {
       try {
         setLoading(true);
         const res = await fetch(
-          `http://localhost:3001/messages?senderId=${userId}&receiverId=${contactId}`
+          `${process.env.BACKEND_URL}/messages?senderId=${userId}&receiverId=${contactId}`
         );
 
         if (!res.ok) {
