@@ -20,6 +20,8 @@ app.use(
 
 app.use(express.json());
 
+app.options("*", cors());
+
 // Semua user routes
 app.use("/users", userController);
 app.use("/messages", messageController);
