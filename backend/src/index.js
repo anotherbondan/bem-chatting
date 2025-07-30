@@ -15,6 +15,7 @@ app.use(
     origin: ["http://localhost:3001", "https://bem-chatting-app.vercel.app"],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     credentials: true,
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
