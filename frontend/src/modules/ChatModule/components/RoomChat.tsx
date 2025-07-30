@@ -22,7 +22,7 @@ export default function RoomChat({ userId, contactId }: RoomChatProps) {
     const fetchContacts = async () => {
       try {
         const res = await fetch(
-          `${process.env.BACKEND_URL}/users/${userId}/contacts?contactId=${contactId}`
+          `${process.env.NEXT_PUBLIC_API_URL}/users/${userId}/contacts?contactId=${contactId}`
         );
         if (!res.ok) {
           const err = await res.text();

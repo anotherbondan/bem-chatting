@@ -11,7 +11,7 @@ export default function LoginModule() {
     e.preventDefault();
 
     try {
-      const res = await fetch(`${process.env.BACKEND_URL}/login`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/login`, {
         method: "POST",
         headers: {
           Authorization: "Basic " + btoa(`${username}:${password}`),
@@ -26,7 +26,7 @@ export default function LoginModule() {
 
       const data = await res.json();
       toast.success(data.message || "Login berhasil");
-      localStorage.setItem("token", "your-token-value")
+      localStorage.setItem("token", "your-token-value");
       localStorage.setItem("userId", data.user.id);
       window.location.href = "/chats";
     } catch (error) {
