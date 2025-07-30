@@ -12,15 +12,13 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://bem-chatting-app.vercel.app",
+    origin: ["http://localhost:3001", "https://bem-chatting-app.vercel.app"],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     credentials: true,
   })
-); 
+);
 
 app.use(express.json());
-
-app.options("*", cors());
 
 // Semua user routes
 app.use("/users", userController);
