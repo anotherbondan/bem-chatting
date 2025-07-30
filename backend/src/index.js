@@ -23,6 +23,8 @@ app.use(express.json());
 app.use("/users", userController);
 app.use("/messages", messageController);
 
+app.options('*', cors())
+
 async function basicAuth(req, res, next) {
   const authHeader = req.headers.authorization;
 
