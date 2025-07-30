@@ -1,34 +1,91 @@
-# bem-chatting
+# 🚀 Panduan Menjalankan Proyek di Lokal
 
-First, run the development server:
+## 📌 Prasyarat
+Pastikan Anda telah menginstal:
+- [Node.js](https://nodejs.org/) (disarankan versi terbaru LTS)
+- [Git](https://git-scm.com/)
+- [npm](https://www.npmjs.com/)
+- [PostgreSQL](https://www.postgresql.org/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 📂 Struktur Proyek
+```
+bem-chatting/
+│── backend/     # Folder untuk backend (Express.js)
+│── frontend/    # Folder untuk frontend (Next.js)
+│── README.md    # Panduan ini
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🔥 Menjalankan Backend (Express.js)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Masuk ke folder backend**
+   ```sh
+   cd backend
+   ```
+2. **Install dependencies**
+   ```sh
+   npm install @prisma/client cors dotenv express prisma nodemon
+   ```
+4. **Tambahkan PORT pada file .env**
+   ```sh
+   PORT=3001
+   ```
+5. **Jalankan server**
+   ```sh
+   nodemon ./src
+   ```
+6. **Cek apakah server berjalan**
+   Buka browser atau gunakan Postman untuk mengakses:
+   ```
+   http://localhost:3001
+   ```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🌟 Menjalankan Frontend (Next.js)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Masuk ke folder frontend**
+   ```sh
+   cd ../frontend
+   ```
+2. **Install dependencies**
+   ```sh
+   npm install @hookform/resolvers@^5.2.0 @radix-ui/react-slot@^1.2.3 @radix-ui/react-tabs@^1.1.12 @tanstack/react-query@^5.83.0 class-variance-authority@^0.7.1 clsx@^2.1.1 framer-motion@^12.23.9 lucide-react@^0.525.0 motion@^12.23.9 next@15.4.3 react@19.1.0 react-dom@19.1.0 react-hook-form@^7.61.1 sonner@^2.0.6 tailwind-merge@^3.3.1 zod@^4.0.10
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+   ```
+3. **Jalankan Next.js**
+   ```sh
+   npm run dev
+   ```
+4. **Buka di browser**
+   ```
+   http://localhost:3000
+   ```
+---
+## 📌 Setup Database
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. **Buat database kosong dengan nama yang sama (`bem-chatting`)**
+   ```sh
+   CREATE DATABASE "bem-chatting";
+   ```
+2. **Buat file `.env` dan pastikan koneksi database sudah sesuai** 
+   ```
+   DATABASE_URL=postgres://postgres:yourpassword@localhost:5432/bem-chatting
+   ```
+   *(Ganti `yourpassword` dengan password PostgreSQL di komputer Anda)*
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3. **Jalankan migrasi Prisma**
+   ```sh
+   npx prisma migrate dev
+   ```
+
+4. **Jalankan backend**
+   ```sh
+   nodemon ./src
+   ```
+---
+## 🎉 Selesai!
+Sekarang proyek berjalan di lokal. Happy coding! 🚀
+
