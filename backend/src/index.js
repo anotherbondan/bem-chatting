@@ -17,13 +17,13 @@ app.use(
     credentials: true,
   })
 );
+app.options("*", cors());
+
 app.use(express.json());
 
 // Semua user routes
 app.use("/users", userController);
 app.use("/messages", messageController);
-
-app.options('*', cors())
 
 async function basicAuth(req, res, next) {
   const authHeader = req.headers.authorization;
@@ -55,7 +55,7 @@ async function basicAuth(req, res, next) {
   }
 }
 
-app.post("/login", basicAuth, async (req, res) => {
+app.post("/login", cors(), basicAuth, async (req, res) => {
   try {
     const user = await prisma.user.findUnique({
       where: { username: req.user },
