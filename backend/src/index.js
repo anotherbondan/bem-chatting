@@ -12,7 +12,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: ["http://localhost:3001", "https://bem-chatting-production.up.railway.app"],
+    origin: ["http://localhost:3001", "https://bem-chatting-app.vercel.app"],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     credentials: true,
   })
