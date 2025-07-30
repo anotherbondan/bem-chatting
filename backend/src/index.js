@@ -16,8 +16,7 @@ app.use(
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     credentials: true,
   })
-);
-app.options("*", cors());
+); 
 
 app.use(express.json());
 
@@ -55,7 +54,7 @@ async function basicAuth(req, res, next) {
   }
 }
 
-app.post("/login", cors(), basicAuth, async (req, res) => {
+app.post("/login", basicAuth, async (req, res) => {
   try {
     const user = await prisma.user.findUnique({
       where: { username: req.user },
