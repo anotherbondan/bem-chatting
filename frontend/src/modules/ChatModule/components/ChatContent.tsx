@@ -25,7 +25,8 @@ export default function ChatContent({ userId, contactId }: ChatContentProps) {
       try {
         setLoading(true);
         const res = await fetch(
-          `${process.env.NEXT_PUBLIC_API_URL}/messages?senderId=${userId}&receiverId=${contactId}`
+          `${process.env.NEXT_PUBLIC_API_URL}/messages?senderId=${userId}&receiverId=${contactId}`,
+          { method: "GET", credentials: "include" }
         );
 
         if (!res.ok) {

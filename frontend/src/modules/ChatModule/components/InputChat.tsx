@@ -30,6 +30,7 @@ export default function InputChat({
           receiverId,
           text,
         }),
+        credentials: "include"
       });
 
       if (!res.ok) throw new Error("Gagal mengirim pesan");

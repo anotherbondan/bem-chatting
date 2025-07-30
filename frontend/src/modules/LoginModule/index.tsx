@@ -16,6 +16,7 @@ export default function LoginModule() {
         headers: {
           Authorization: "Basic " + btoa(`${username}:${password}`),
         },
+        credentials: "include"
       });
 
       if (!res.ok) {
